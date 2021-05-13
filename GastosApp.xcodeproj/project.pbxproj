@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D6889C68264D97470072C715 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6889C67264D97470072C715 /* Constants.swift */; };
 		D6953CC226421CCE0070F3A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6953CC126421CCE0070F3A3 /* AppDelegate.swift */; };
 		D6953CC426421CCE0070F3A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6953CC326421CCE0070F3A3 /* SceneDelegate.swift */; };
 		D6953CC626421CCE0070F3A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6953CC526421CCE0070F3A3 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D6889C67264D97470072C715 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D6953CBE26421CCE0070F3A3 /* GastosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GastosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6953CC126421CCE0070F3A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6953CC326421CCE0070F3A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D6889C66264D97350072C715 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D6889C67264D97470072C715 /* Constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		D6953CB526421CCD0070F3A3 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +66,7 @@
 		D6953CC026421CCE0070F3A3 /* GastosApp */ = {
 			isa = PBXGroup;
 			children = (
+				D6889C66264D97350072C715 /* Helpers */,
 				D6953CC126421CCE0070F3A3 /* AppDelegate.swift */,
 				D6953CC326421CCE0070F3A3 /* SceneDelegate.swift */,
 				D6953CC526421CCE0070F3A3 /* ViewController.swift */,
@@ -140,6 +151,7 @@
 				D6953CC626421CCE0070F3A3 /* ViewController.swift in Sources */,
 				D6953CC226421CCE0070F3A3 /* AppDelegate.swift in Sources */,
 				D6953CC426421CCE0070F3A3 /* SceneDelegate.swift in Sources */,
+				D6889C68264D97470072C715 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
