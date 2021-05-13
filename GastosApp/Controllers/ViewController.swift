@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         return button
     }()
     
-    private let createUserBtn: UIButton = {
+    private let registerBtn: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemBlue
         button.setTitleColor(.white, for: .normal)
@@ -56,9 +56,10 @@ class ViewController: UIViewController {
         view.addSubview(emailTextField)
         view.addSubview(pwdTextField)
         view.addSubview(loginBtn)
-        view.addSubview(createUserBtn)
-        
-        loginBtn.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        view.addSubview(registerBtn)
+        view.backgroundColor = .white
+        loginBtn.addTarget(self, action: #selector(didLoginPressed), for: .touchUpInside)
+        registerBtn.addTarget(self, action: #selector(didRegisterPressed), for: .touchUpInside)
     }
     
     override func viewDidLayoutSubviews() {
@@ -79,14 +80,19 @@ class ViewController: UIViewController {
                                 y: pwdTextField.frame.origin.y+pwdTextField.frame.size.height+50,
                                 width: view.frame.size.width-40,
                                 height: 50)
-        createUserBtn.frame = CGRect(x: 20,
+        registerBtn.frame = CGRect(x: 20,
                                 y: loginBtn.frame.origin.y+loginBtn.frame.size.height+10,
                                 width: view.frame.size.width-40,
                                 height: 50)
     }
     
-    @objc private func didTapButton() {
-        print("Button tapped")
+    @objc private func didLoginPressed() {
+        let vc = RegisterViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    @objc private func didRegisterPressed() {
+        let vc = RegisterViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
