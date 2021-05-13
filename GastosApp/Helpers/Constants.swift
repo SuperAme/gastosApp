@@ -12,5 +12,6 @@ struct Constants {
     static let email = "Email Address"
     static let password = "Password"
     static let title = "Finances App"
-    static let createUsr = "Create User"
+    static let createUsr = "Register User"
+    static let register = "Register"
 }
