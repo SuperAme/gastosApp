@@ -11,6 +11,8 @@
 		D6889C68264D97470072C715 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6889C67264D97470072C715 /* Constants.swift */; };
 		D6889C6C264DA59C0072C715 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6889C6B264DA59C0072C715 /* RegisterViewController.swift */; };
 		D6889C912652F2520072C715 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6889C902652F2520072C715 /* GoogleService-Info.plist */; };
+		D6889C9A2652F5B80072C715 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6889C992652F5B80072C715 /* User.swift */; };
+		D6889C9D2652F5C80072C715 /* UserFinances.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6889C9C2652F5C80072C715 /* UserFinances.swift */; };
 		D6953CC226421CCE0070F3A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6953CC126421CCE0070F3A3 /* AppDelegate.swift */; };
 		D6953CC426421CCE0070F3A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6953CC326421CCE0070F3A3 /* SceneDelegate.swift */; };
 		D6953CC626421CCE0070F3A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6953CC526421CCE0070F3A3 /* ViewController.swift */; };
@@ -24,6 +26,8 @@
 		D6889C67264D97470072C715 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D6889C6B264DA59C0072C715 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		D6889C902652F2520072C715 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D6889C992652F5B80072C715 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D6889C9C2652F5C80072C715 /* UserFinances.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFinances.swift; sourceTree = "<group>"; };
 		D6953CBE26421CCE0070F3A3 /* GastosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GastosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6953CC126421CCE0070F3A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6953CC326421CCE0070F3A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +84,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		D6889C982652F58C0072C715 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D6889C992652F5B80072C715 /* User.swift */,
+				D6889C9C2652F5C80072C715 /* UserFinances.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		D6953CB526421CCD0070F3A3 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +114,7 @@
 		D6953CC026421CCE0070F3A3 /* GastosApp */ = {
 			isa = PBXGroup;
 			children = (
+				D6889C982652F58C0072C715 /* Models */,
 				D6889C66264D97350072C715 /* Helpers */,
 				D6953CC126421CCE0070F3A3 /* AppDelegate.swift */,
 				D6953CC326421CCE0070F3A3 /* SceneDelegate.swift */,
@@ -229,7 +243,9 @@
 			files = (
 				D6953CC626421CCE0070F3A3 /* ViewController.swift in Sources */,
 				D6889C6C264DA59C0072C715 /* RegisterViewController.swift in Sources */,
+				D6889C9A2652F5B80072C715 /* User.swift in Sources */,
 				D6953CC226421CCE0070F3A3 /* AppDelegate.swift in Sources */,
+				D6889C9D2652F5C80072C715 /* UserFinances.swift in Sources */,
 				D6953CC426421CCE0070F3A3 /* SceneDelegate.swift in Sources */,
 				D6889C68264D97470072C715 /* Constants.swift in Sources */,
 			);

@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import Firebase
+import RealmSwift
 
 class RegisterViewController: UIViewController {
+    
+    let realm = try! Realm()
     
     private let emailTextField: UITextField = {
         let emailTextField = UITextField()
@@ -41,6 +45,8 @@ class RegisterViewController: UIViewController {
         view.addSubview(emailTextField)
         view.addSubview(pwdTextField)
         view.addSubview(registerBtn)
+        registerBtn.addTarget(self, action: #selector(didRegisterUserPressed), for: .touchUpInside)
+        print(Realm.Configuration.defaultConfiguration.fileURL)
     }
     
     override func viewDidLayoutSubviews() {
@@ -57,6 +63,32 @@ class RegisterViewController: UIViewController {
                                    y: pwdTextField.frame.origin.y+pwdTextField.frame.size.height+50,
                                    width: view.frame.size.width-40,
                                    height: 50)
+    }
+    
+    @objc private func didRegisterUserPressed() {
+        if let email = emailTextField.text, let password = pwdTextField.text {
+            
+            Auth.auth().createUser(withEmail: email, password: password) { (authResult, err) in
+                if let e = err {
+                    print("error")
+                } else {
+                    print("Successful Registration!")
+                    let newUser = User()
+                    newUser.email = email
+                    self.saveUser(user: newUser)
+                }
+            }
+        }
+    }
+    
+    func saveUser(user: User) {
+        do {
+            try realm.write {
+                realm.add(user)
+            }
+        } catch {
+            print("Error saving realm user")
+        }
     }
 }
 

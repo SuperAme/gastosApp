@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.rootViewController = navVC
         window.makeKeyAndVisible()
         self.window = window
+        FirebaseApp.configure()
+        let db = Firestore.firestore()
+        print(Realm.Configuration.defaultConfiguration.fileURL)
+        do {
+            let realm = try Realm()
+            
+        } catch {
+            print("Error initialisin new realm, \(error)")
+        }
         return true
     }
 
