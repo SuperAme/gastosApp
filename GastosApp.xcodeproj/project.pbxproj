@@ -3,12 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BC2F88A3BCB28829E1E1632 /* Pods_GastosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62916E81A7F5EC420368B54A /* Pods_GastosApp.framework */; };
 		D6889C68264D97470072C715 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6889C67264D97470072C715 /* Constants.swift */; };
 		D6889C6C264DA59C0072C715 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6889C6B264DA59C0072C715 /* RegisterViewController.swift */; };
+		D6889C912652F2520072C715 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6889C902652F2520072C715 /* GoogleService-Info.plist */; };
 		D6953CC226421CCE0070F3A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6953CC126421CCE0070F3A3 /* AppDelegate.swift */; };
 		D6953CC426421CCE0070F3A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6953CC326421CCE0070F3A3 /* SceneDelegate.swift */; };
 		D6953CC626421CCE0070F3A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6953CC526421CCE0070F3A3 /* ViewController.swift */; };
@@ -17,8 +19,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11647E490B06F22A493BCC61 /* Pods-GastosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GastosApp.release.xcconfig"; path = "Target Support Files/Pods-GastosApp/Pods-GastosApp.release.xcconfig"; sourceTree = "<group>"; };
+		62916E81A7F5EC420368B54A /* Pods_GastosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GastosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6889C67264D97470072C715 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D6889C6B264DA59C0072C715 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		D6889C902652F2520072C715 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D6953CBE26421CCE0070F3A3 /* GastosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GastosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6953CC126421CCE0070F3A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6953CC326421CCE0070F3A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +31,7 @@
 		D6953CCA26421CD40070F3A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6953CCD26421CD40070F3A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6953CCF26421CD40070F3A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D73784E6A603A60A663D1996 /* Pods-GastosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GastosApp.debug.xcconfig"; path = "Target Support Files/Pods-GastosApp/Pods-GastosApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,12 +39,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BC2F88A3BCB28829E1E1632 /* Pods_GastosApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19AFCDADEB2570D4A2CF2503 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D73784E6A603A60A663D1996 /* Pods-GastosApp.debug.xcconfig */,
+				11647E490B06F22A493BCC61 /* Pods-GastosApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		20A822E73964FE72DF6D8240 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				62916E81A7F5EC420368B54A /* Pods_GastosApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D6889C66264D97350072C715 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +85,8 @@
 			children = (
 				D6953CC026421CCE0070F3A3 /* GastosApp */,
 				D6953CBF26421CCE0070F3A3 /* Products */,
+				19AFCDADEB2570D4A2CF2503 /* Pods */,
+				20A822E73964FE72DF6D8240 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +107,7 @@
 				D6889C6A264DA57B0072C715 /* Controllers */,
 				D6953CCA26421CD40070F3A3 /* Assets.xcassets */,
 				D6953CCC26421CD40070F3A3 /* LaunchScreen.storyboard */,
+				D6889C902652F2520072C715 /* GoogleService-Info.plist */,
 				D6953CCF26421CD40070F3A3 /* Info.plist */,
 			);
 			path = GastosApp;
@@ -93,9 +120,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6953CD226421CD40070F3A3 /* Build configuration list for PBXNativeTarget "GastosApp" */;
 			buildPhases = (
+				918A3A0EAB46782B5612308F /* [CP] Check Pods Manifest.lock */,
 				D6953CBA26421CCE0070F3A3 /* Sources */,
 				D6953CBB26421CCE0070F3A3 /* Frameworks */,
 				D6953CBC26421CCE0070F3A3 /* Resources */,
+				A1E6940267707F2B2931B7DC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -145,10 +174,53 @@
 			files = (
 				D6953CCE26421CD40070F3A3 /* LaunchScreen.storyboard in Resources */,
 				D6953CCB26421CD40070F3A3 /* Assets.xcassets in Resources */,
+				D6889C912652F2520072C715 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		918A3A0EAB46782B5612308F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GastosApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1E6940267707F2B2931B7DC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GastosApp/Pods-GastosApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GastosApp/Pods-GastosApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GastosApp/Pods-GastosApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D6953CBA26421CCE0070F3A3 /* Sources */ = {
@@ -295,6 +367,7 @@
 		};
 		D6953CD326421CD40070F3A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D73784E6A603A60A663D1996 /* Pods-GastosApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -313,6 +386,7 @@
 		};
 		D6953CD426421CD40070F3A3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11647E490B06F22A493BCC61 /* Pods-GastosApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
