@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
     
@@ -87,8 +88,16 @@ class ViewController: UIViewController {
     }
     
     @objc private func didLoginPressed() {
-        let vc = RegisterViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        if let email = emailTextField.text, let password = pwdTextField.text {
+            Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
+                if let e = error {
+                    print("error in Authentication"+e.localizedDescription)
+                } else {
+                    let vc = LandingViewController()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+        }
     }
     @objc private func didRegisterPressed() {
         let vc = RegisterViewController()
