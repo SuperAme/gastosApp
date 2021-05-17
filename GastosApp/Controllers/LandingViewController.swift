@@ -8,9 +8,22 @@
 import Foundation
 import UIKit
 
-class LandingViewController: UIViewController {
+class LandingViewController: UITabBarController {
+    
+    let ingresosVC = IngresosViewController()
+    let gastosVC = GastosViewController()
+    let homeVC = HomeViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        homeVC.title = "Home"
+        ingresosVC.title = "ingresos"
+        gastosVC.title = "gastos"
+        self.setViewControllers([homeVC, ingresosVC, gastosVC], animated: false)
+//        let topButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAdd))
+//        self.navigationItem.rightBarButtonItem = topButton
     }
+//    @objc public func didTapAdd() {
+//        print("add button")
+//    }
 }

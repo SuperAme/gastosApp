@@ -61,6 +61,8 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
         loginBtn.addTarget(self, action: #selector(didLoginPressed), for: .touchUpInside)
         registerBtn.addTarget(self, action: #selector(didRegisterPressed), for: .touchUpInside)
+        emailTextField.text = "usuario@usuario.com"
+        pwdTextField.text = "usuario"
     }
     
     override func viewDidLayoutSubviews() {
