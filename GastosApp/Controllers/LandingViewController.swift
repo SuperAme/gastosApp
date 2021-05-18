@@ -20,10 +20,10 @@ class LandingViewController: UITabBarController {
         ingresosVC.title = "ingresos"
         gastosVC.title = "gastos"
         self.setViewControllers([homeVC, ingresosVC, gastosVC], animated: false)
-//        let topButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAdd))
-//        self.navigationItem.rightBarButtonItem = topButton
+        let leftBtn = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(didLogOutTapped))
+        self.navigationItem.leftBarButtonItem = leftBtn
     }
-//    @objc public func didTapAdd() {
-//        print("add button")
-//    }
+    @objc func didLogOutTapped() {
+        print("Logout")
+    }
 }

@@ -14,4 +14,8 @@ struct Constants {
     static let title = "Finances App"
     static let createUsr = "Register User"
     static let register = "Register"
+    static let saldo = "Saldo: "
+    static let total = 0.0
+    static let ingresos = "Ingresos"
+    static let gastos = "Gastos"
 }
