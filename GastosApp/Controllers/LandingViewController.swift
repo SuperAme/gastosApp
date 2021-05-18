@@ -7,12 +7,14 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class LandingViewController: UITabBarController {
     
     let ingresosVC = IngresosViewController()
     let gastosVC = GastosViewController()
     let homeVC = HomeViewController()
+    let firebaseAuth = Auth.auth()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +24,19 @@ class LandingViewController: UITabBarController {
         self.setViewControllers([homeVC, ingresosVC, gastosVC], animated: false)
         let leftBtn = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(didLogOutTapped))
         self.navigationItem.leftBarButtonItem = leftBtn
+        
+        if let currentUser = firebaseAuth.currentUser?.email {
+            gastosVC.user = currentUser
+            ingresosVC.user = currentUser
+        }
     }
+    
     @objc func didLogOutTapped() {
-        print("Logout")
+        do {
+            try firebaseAuth.signOut()
+            navigationController?.popToRootViewController(animated: true)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
     }
 }

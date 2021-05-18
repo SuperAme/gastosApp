@@ -10,6 +10,7 @@ import UIKit
 class IngresosViewController: UIViewController {
     
     let tableView = UITableView()
+    var user = ""
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -23,6 +24,7 @@ class IngresosViewController: UIViewController {
         let button = UIButton()
         button.setTitleColor(.link, for: .normal)
         button.setTitle(Constants.agregaIngreso, for: .normal)
+        button.addTarget(self, action: #selector(didTapAdd), for: .touchUpInside)
         return button
     }()
 
@@ -34,6 +36,7 @@ class IngresosViewController: UIViewController {
         view.addSubview(addBtn)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.dataSource = self
+        print(user)
     }
     
     override func viewDidLayoutSubviews() {
@@ -44,8 +47,23 @@ class IngresosViewController: UIViewController {
     }
     
     @objc public func didTapAdd() {
-        print("add button")
+        viewAlert()
     }
+    func viewAlert() {
+        let alert = UIAlertController(title: Constants.agregaIngreso, message: Constants.agregaIngreso, preferredStyle: .alert)
+        alert.addTextField { (txtField) in
+            txtField.placeholder = Constants.agregaIngreso
+        }
+        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (alertAction) in
+            guard let field = alert.textFields?.first, let text = field.text, !text.isEmpty else {
+                return
+            }
+            print(text)
+        }))
+        present(alert, animated: true)
+    }
+    
+    func
 }
 
 extension IngresosViewController: UITableViewDataSource {
