@@ -18,4 +18,6 @@ struct Constants {
     static let total = 0.0
     static let ingresos = "Ingresos"
     static let gastos = "Gastos"
+    static let agregaIngreso = "Agregar Ingreso"
+    static let agregarGasto = "Agregar Gasto"
 }

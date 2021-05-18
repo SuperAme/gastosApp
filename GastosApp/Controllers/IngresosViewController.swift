@@ -18,19 +18,28 @@ class IngresosViewController: UIViewController {
         label.font = .systemFont(ofSize: 24, weight: .semibold)
         return label
     }()
+    
+    private let addBtn: UIButton = {
+        let button = UIButton()
+        button.setTitleColor(.link, for: .normal)
+        button.setTitle(Constants.agregaIngreso, for: .normal)
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.addSubview(titleLabel)
         view.addSubview(tableView)
+        view.addSubview(addBtn)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.dataSource = self
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        titleLabel.frame = CGRect(x: 0, y: view.layoutMargins.top+20, width: view.frame.size.width, height: 50)
+        titleLabel.frame = CGRect(x: 110, y: view.layoutMargins.top+20, width: 100, height: 50)
+        addBtn.frame = CGRect(x: 250, y: view.layoutMargins.top+20, width: 130, height: 45)
         tableView.frame = CGRect(x: 0, y: titleLabel.frame.origin.y+titleLabel.frame.size.height+10, width: view.frame.size.width, height: view.frame.size.height)
     }
     
