@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import RealmSwift
 
 class IngresosViewController: UIViewController {
     
+    let realm = try! Realm()
     let tableView = UITableView()
     var user = ""
     
@@ -36,7 +38,6 @@ class IngresosViewController: UIViewController {
         view.addSubview(addBtn)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.dataSource = self
-        print(user)
     }
     
     override func viewDidLayoutSubviews() {
@@ -58,12 +59,32 @@ class IngresosViewController: UIViewController {
             guard let field = alert.textFields?.first, let text = field.text, !text.isEmpty else {
                 return
             }
-            print(text)
+            let users = self.realm.objects(User.self)
+            let currentUser = users.filter("email == '\(self.user)'")
+            let cuantity = Float(text)!
+            do {
+                try self.realm.write {
+                    let newFinance = UserFinances()
+                    newFinance.ingresos = cuantity
+                    currentUser.first?.finances.append(newFinance)
+                }
+            } catch {
+                print("error saving data \(error)")
+            }
+            
         }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true)
     }
+    func addIngreso(_ user: User) {
+        
+    }
     
-    func
+    func getUser() {
+//        usersRealm = selectedUser?.finances.filter("email == '\(user)'")
+        let users = realm.objects(User.self)
+        let currentUser = users.filter("email == '\(user)'")
+    }
 }
 
 extension IngresosViewController: UITableViewDataSource {
