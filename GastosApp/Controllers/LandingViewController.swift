@@ -28,7 +28,10 @@ class LandingViewController: UITabBarController {
         if let currentUser = firebaseAuth.currentUser?.email {
             gastosVC.user = currentUser
             ingresosVC.user = currentUser
+            homeVC.user = currentUser
+            homeVC.saldoTotal = 5
         }
+        
     }
     
     @objc func didLogOutTapped() {
