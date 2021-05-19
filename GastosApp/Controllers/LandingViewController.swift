@@ -29,7 +29,6 @@ class LandingViewController: UITabBarController {
             gastosVC.user = currentUser
             ingresosVC.user = currentUser
             homeVC.user = currentUser
-            homeVC.saldoTotal = 5
         }
         
     }

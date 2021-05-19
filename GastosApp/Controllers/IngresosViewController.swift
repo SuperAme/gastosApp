@@ -11,6 +11,7 @@ import RealmSwift
 class IngresosViewController: UIViewController {
     
     let realm = try! Realm()
+    var userIngresos: Results<UserFinances>?
     let tableView = UITableView()
     var user = ""
     
@@ -38,6 +39,10 @@ class IngresosViewController: UIViewController {
         view.addSubview(addBtn)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.dataSource = self
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        getUserInfo()
+        tableView.reloadData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -71,29 +76,29 @@ class IngresosViewController: UIViewController {
             } catch {
                 print("error saving data \(error)")
             }
-            
+            self.tableView.reloadData()
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true)
     }
-    func addIngreso(_ user: User) {
-        
-    }
     
-    func getUser() {
-//        usersRealm = selectedUser?.finances.filter("email == '\(user)'")
-        let users = realm.objects(User.self)
-        let currentUser = users.filter("email == '\(user)'")
+    func getUserInfo() {
+        let info = realm.objects(User.self)
+        let userInfo = info.filter("email == '\(user)'")
+        userIngresos = userInfo.first?.finances.filter("ingresos != 0.0")
     }
 }
 
 extension IngresosViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return userIngresos?.count ?? 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "cell number \(indexPath.row)"
+        if let ingreso = userIngresos?[indexPath.row].ingresos {
+            cell.textLabel?.text = "\(ingreso)"
+        }
+        
         return cell
     }
 }

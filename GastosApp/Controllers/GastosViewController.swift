@@ -11,6 +11,7 @@ import RealmSwift
 class GastosViewController: UIViewController {
     
     let realm = try! Realm()
+    var userGastos: Results<UserFinances>?
     let tableView = UITableView()
     var user = ""
     
@@ -47,6 +48,11 @@ class GastosViewController: UIViewController {
         tableView.frame = CGRect(x: 0, y: titleLabel.frame.origin.y+titleLabel.frame.size.height+10, width: view.frame.size.width, height: view.frame.size.height)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        getUserInfo()
+        tableView.reloadData()
+    }
+    
     @objc public func didTapAdd() {
         viewAlert()
     }
@@ -71,19 +77,28 @@ class GastosViewController: UIViewController {
             } catch {
                 print("error saving data \(error)")
             }
+            self.tableView.reloadData()
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true)
+    }
+    
+    func getUserInfo() {
+        let info = realm.objects(User.self)
+        let userInfo = info.filter("email == '\(user)'")
+        userGastos = userInfo.first?.finances.filter("gastos != 0.0")
     }
 }
 
 extension GastosViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return userGastos?.count ?? 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "cell # \(indexPath.row)"
+        if let gasto = userGastos?[indexPath.row].gastos {
+            cell.textLabel?.text = "\(gasto)"
+        }
         return cell
     }
 }

@@ -12,8 +12,12 @@ class HomeViewController: UIViewController {
     
     let realm = try! Realm()
     var userFinances: List<UserFinances>?
+    var userIngresos: Results<UserFinances>?
+    var userGastos: Results<UserFinances>?
     let tableView = UITableView()
-    var saldoTotal = 0.0
+    var ingresosTotales:Float = 0.0
+    var gastosTotales:Float = 0.0
+    var saldoTotal:Float = 0.0
     var user = ""
     
     private let titleLabel: UILabel = {
@@ -34,7 +38,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        getSaldo()
         view.addSubview(titleLabel)
         view.addSubview(totalLabel)
         view.addSubview(tableView)
@@ -53,14 +56,20 @@ class HomeViewController: UIViewController {
         tableView.frame = CGRect(x: 0, y: titleLabel.frame.origin.y+titleLabel.frame.size.height+10, width: view.frame.size.width, height: view.frame.size.height)
     }
     
-    func getSaldo() {
-        totalLabel.text = saldoTotal != 0.0 ? "\(saldoTotal)" : "0"
-    }
-    
     func getUserInfo() {
         let info = realm.objects(User.self)
         let userInfo = info.filter("email == '\(user)'")
         userFinances = userInfo.first?.finances
+        userIngresos = userInfo.first?.finances.filter("ingresos != 0.0")
+        userGastos = userInfo.first?.finances.filter("gastos != 0.0")
+        userIngresos?.forEach{
+            ingresosTotales += $0.ingresos
+        }
+        userGastos?.forEach{
+            gastosTotales += $0.gastos
+        }
+        saldoTotal = ingresosTotales - gastosTotales
+        totalLabel.text = saldoTotal != 0.0 ? " \(saldoTotal)" : "0"
     }
 
 }
